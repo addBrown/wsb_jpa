@@ -1,12 +1,12 @@
 package com.capgemini.wsb.service;
 
-import com.capgemini.wsb.persistence.entity.PatientEntity;
+import com.capgemini.wsb.dto.PatientTO;
 
 import java.util.List;
 
 public interface PatientService {
-    List<PatientEntity> getAllPatients();
-    PatientEntity getPatientById(Long id);
-    PatientEntity savePatient(PatientEntity patient);
-    void deletePatient(Long id);
+    PatientTO getPatientById(Long id);
+    List<PatientTO> getAllPatients();
+    PatientTO savePatient(PatientTO patientTO);
+    void deletePatientById(Long id);
 }

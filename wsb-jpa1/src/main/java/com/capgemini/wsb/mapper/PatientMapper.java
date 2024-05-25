@@ -16,20 +16,23 @@ public class PatientMapper {
                 patientEntity.getPatientNumber(),
                 patientEntity.getDateOfBirth(),
                 patientEntity.getAge(),
-                patientEntity.getVisits().stream().map(VisitMapper::toVisitTO).collect(Collectors.toList())
+                patientEntity.getVisits() != null ?
+                        patientEntity.getVisits().stream().map(VisitMapper::toVisitTO).collect(Collectors.toList())
+                        : null
         );
     }
 
     public static PatientEntity toPatientEntity(PatientTO patientTO) {
-        return new PatientEntity(
-                patientTO.getId(),
-                patientTO.getFirstName(),
-                patientTO.getLastName(),
-                patientTO.getTelephoneNumber(),
-                patientTO.getEmail(),
-                patientTO.getPatientNumber(),
-                patientTO.getDateOfBirth(),
-                patientTO.getAge() // New field
-        );
+        PatientEntity patientEntity = new PatientEntity();
+        patientEntity.setId(patientTO.getId());
+        patientEntity.setFirstName(patientTO.getFirstName());
+        patientEntity.setLastName(patientTO.getLastName());
+        patientEntity.setTelephoneNumber(patientTO.getTelephoneNumber());
+        patientEntity.setEmail(patientTO.getEmail());
+        patientEntity.setPatientNumber(patientTO.getPatientNumber());
+        patientEntity.setDateOfBirth(patientTO.getDateOfBirth());
+        patientEntity.setAge(patientTO.getAge());
+        // Set visits if needed
+        return patientEntity;
     }
 }

@@ -1,10 +1,8 @@
 package com.capgemini.wsb.persistence.entity;
 
-import com.capgemini.wsb.persistence.entity.AddressEntity;
-import com.capgemini.wsb.persistence.entity.VisitEntity;
-
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -23,23 +21,28 @@ public class PatientEntity {
 	private int age;
 
 	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
-	// Dwustronna relacja między Patient a Visit
-	private Set<VisitEntity> visits;
+	private Set<VisitEntity> visits = new HashSet<>();
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id", referencedColumnName = "id")
-	// Jednostronna relacja z perspektywy Patient
 	private AddressEntity address;
 
 	public PatientEntity(Long id, String firstName, String lastName, String telephoneNumber, String email, String patientNumber, Date dateOfBirth, int age) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.telephoneNumber = telephoneNumber;
+		this.email = email;
+		this.patientNumber = patientNumber;
+		this.dateOfBirth = dateOfBirth;
+		this.age = age;
 	}
 
 	public PatientEntity() {
-
 	}
 
-
 	// Getters and Setters
+
 	public Long getId() {
 		return id;
 	}
