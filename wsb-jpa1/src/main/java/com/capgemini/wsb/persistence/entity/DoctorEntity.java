@@ -1,42 +1,27 @@
 package com.capgemini.wsb.persistence.entity;
 
-import com.capgemini.wsb.persistence.enums.Specialization;
+import com.capgemini.wsb.persistence.entity.VisitEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table(name = "DOCTOR")
 public class DoctorEntity {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(nullable = false)
 	private String firstName;
-
-	@Column(nullable = false)
 	private String lastName;
-
-	@Column(nullable = false)
 	private String telephoneNumber;
-
 	private String email;
-
-	@Column(nullable = false)
 	private String doctorNumber;
+	private String specialization;
 
-	@Column(nullable = false)
-	@Enumerated(EnumType.STRING)
-	private Specialization specialization;
+	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+	private Set<VisitEntity> visits;
 
+	// Getters and Setters
 	public Long getId() {
 		return id;
 	}
@@ -85,12 +70,19 @@ public class DoctorEntity {
 		this.doctorNumber = doctorNumber;
 	}
 
-	public Specialization getSpecialization() {
+	public String getSpecialization() {
 		return specialization;
 	}
 
-	public void setSpecialization(Specialization specialization) {
+	public void setSpecialization(String specialization) {
 		this.specialization = specialization;
 	}
 
+	public Set<VisitEntity> getVisits() {
+		return visits;
+	}
+
+	public void setVisits(Set<VisitEntity> visits) {
+		this.visits = visits;
+	}
 }
