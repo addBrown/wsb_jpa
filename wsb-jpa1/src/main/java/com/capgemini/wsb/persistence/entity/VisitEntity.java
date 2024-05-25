@@ -1,13 +1,10 @@
 package com.capgemini.wsb.persistence.entity;
 
-import com.capgemini.wsb.persistence.entity.DoctorEntity;
-import com.capgemini.wsb.persistence.entity.MedicalTreatmentEntity;
-import com.capgemini.wsb.persistence.entity.PatientEntity;
-
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
+@Table(name = "visit_entity")
 public class VisitEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +24,17 @@ public class VisitEntity {
 	@ManyToOne
 	@JoinColumn(name = "medical_treatment_id", nullable = false)
 	private MedicalTreatmentEntity medicalTreatment;
+
+	public VisitEntity() {}
+
+	public VisitEntity(Long id, String description, Timestamp time, DoctorEntity doctor, PatientEntity patient, MedicalTreatmentEntity medicalTreatment) {
+		this.id = id;
+		this.description = description;
+		this.time = time;
+		this.doctor = doctor;
+		this.patient = patient;
+		this.medicalTreatment = medicalTreatment;
+	}
 
 	// Getters and Setters
 	public Long getId() {

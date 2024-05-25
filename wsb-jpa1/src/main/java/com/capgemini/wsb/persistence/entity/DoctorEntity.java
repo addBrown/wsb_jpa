@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name = "doctor_entity")
 public class DoctorEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +20,9 @@ public class DoctorEntity {
 	private String specialization;
 
 	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+	// Dwustronna relacja między Doctor a Visit
 	private Set<VisitEntity> visits;
+
 
 	// Getters and Setters
 	public Long getId() {

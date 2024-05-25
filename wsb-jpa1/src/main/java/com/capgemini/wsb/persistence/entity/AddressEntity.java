@@ -5,6 +5,7 @@ import com.capgemini.wsb.persistence.entity.PatientEntity;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "address_entity")
 public class AddressEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +17,7 @@ public class AddressEntity {
 	private String postalCode;
 
 	@OneToOne(mappedBy = "address")
+	// Jednostronna relacja z perspektywy Address
 	private PatientEntity patient;
 
 	// Getters and Setters

@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
+@Table(name = "patient_entity")
 public class PatientEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,13 +20,24 @@ public class PatientEntity {
 	private String email;
 	private String patientNumber;
 	private Date dateOfBirth;
+	private int age;
 
 	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+	// Dwustronna relacja między Patient a Visit
 	private Set<VisitEntity> visits;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id", referencedColumnName = "id")
+	// Jednostronna relacja z perspektywy Patient
 	private AddressEntity address;
+
+	public PatientEntity(Long id, String firstName, String lastName, String telephoneNumber, String email, String patientNumber, Date dateOfBirth, int age) {
+	}
+
+	public PatientEntity() {
+
+	}
+
 
 	// Getters and Setters
 	public Long getId() {
@@ -98,5 +110,13 @@ public class PatientEntity {
 
 	public void setAddress(AddressEntity address) {
 		this.address = address;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 }
