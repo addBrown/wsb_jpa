@@ -102,4 +102,6 @@ public class PatientTO {
     public void setVisits(List<VisitTO> visits) {
         this.visits = visits;
     }
+
+
 }

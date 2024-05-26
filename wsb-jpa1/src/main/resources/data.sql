@@ -16,5 +16,7 @@ INSERT INTO medical_treatment_entity (id, description, type) VALUES (3, 'Leczeni
 INSERT INTO medical_treatment_entity (id, description, type) VALUES (4, 'Leczenie D', 'Typ D');
 -- Wstawianie danych do tabeli visit_entity
 INSERT INTO visit_entity (id, description, time, doctor_id, patient_id, medical_treatment_id) VALUES (2, 'Wizyta 2', '2024-06-25 11:00:00', 2, 2, 2);
-INSERT INTO visit_entity (id, description, time, doctor_id, patient_id, medical_treatment_id) VALUES (3, 'Wizyta 3', '2024-07-25 12:00:00', 3, 3, 3);
+INSERT INTO visit_entity (id, description, time, doctor_id, patient_id, medical_treatment_id) VALUES (3, 'Wizyta 3', '2024-07-25 12:00:00', 3, 2, 3);
 INSERT INTO visit_entity (id, description, time, doctor_id, patient_id, medical_treatment_id) VALUES (4, 'Wizyta 4', '2024-08-25 13:00:00', 4, 4, 4);
+INSERT INTO visit_entity (id, description, time, doctor_id, patient_id, medical_treatment_id) VALUES (5, 'Wizyta 5', '2024-09-25 13:00:00', 4, 2, 4);
+
