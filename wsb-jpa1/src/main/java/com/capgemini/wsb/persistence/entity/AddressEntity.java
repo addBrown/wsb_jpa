@@ -20,7 +20,7 @@ public class AddressEntity {
 	// Jednostronna relacja z perspektywy Address
 	private PatientEntity patient;
 
-	// Getters and Setters
+
 	public Long getId() {
 		return id;
 	}

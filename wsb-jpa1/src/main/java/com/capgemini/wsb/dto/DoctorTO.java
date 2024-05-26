@@ -22,7 +22,7 @@ public class DoctorTO {
         this.specialization = specialization;
     }
 
-    // Getters and Setters
+
 
     public Long getId() {
         return id;

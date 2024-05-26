@@ -24,7 +24,7 @@ public class DoctorEntity {
 	private Set<VisitEntity> visits;
 
 
-	// Getters and Setters
+
 	public Long getId() {
 		return id;
 	}

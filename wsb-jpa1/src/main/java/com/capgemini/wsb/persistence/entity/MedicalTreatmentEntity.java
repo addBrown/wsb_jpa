@@ -20,7 +20,7 @@ public class MedicalTreatmentEntity {
 	// Jednostronna relacja z perspektywy MedicalTreatment
 	private Set<VisitEntity> visits;
 
-	// Getters and Setters
+
 	public Long getId() {
 		return id;
 	}

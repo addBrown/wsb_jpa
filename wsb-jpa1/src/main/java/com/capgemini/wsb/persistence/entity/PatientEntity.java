@@ -41,7 +41,7 @@ public class PatientEntity {
 	public PatientEntity() {
 	}
 
-	// Getters and Setters
+
 
 	public Long getId() {
 		return id;

@@ -20,7 +20,7 @@ public class VisitTO {
         this.patient = patient;
     }
 
-    // Getters and Setters
+
 
     public Long getId() {
         return id;
