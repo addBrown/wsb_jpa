@@ -1,6 +1,7 @@
 package com.capgemini.wsb.persistance.service;
 
 import com.capgemini.wsb.dto.PatientTO;
+import com.capgemini.wsb.dto.VisitTO;
 import com.capgemini.wsb.persistence.entity.PatientEntity;
 import com.capgemini.wsb.persistence.repository.PatientRepository;
 import com.capgemini.wsb.service.PatientService;
@@ -14,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Date;
 import java.util.List;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -82,4 +84,5 @@ class PatientServiceTest {
         List<PatientEntity> patients = patientRepository.findAll();
         assertTrue(patients.isEmpty());
     }
+
 }

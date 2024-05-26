@@ -43,4 +43,6 @@ public class PatientServiceImpl implements PatientService {
     public void deletePatientById(Long id) {
         patientRepository.deleteById(id);
     }
+
+
 }
